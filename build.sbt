@@ -1,18 +1,19 @@
 lazy val scala3Version = "3.5.2"
 
-lazy val circeVersion               = "0.14.0"
-lazy val catsEffectVersion          = "3.3.14"
-lazy val http4sVersion              = "0.23.15"
-lazy val doobieVersion              = "1.0.0-RC1"
-lazy val pureConfigVersion          = "0.17.1"
-lazy val log4catsVersion            = "2.4.0"
-lazy val tsecVersion                = "0.4.0"
-lazy val scalaTestVersion           = "3.2.12"
-lazy val scalaTestCatsEffectVersion = "1.4.0"
+lazy val circeVersion               = "0.14.1"
+lazy val catsEffectVersion          = "3.5.6"
+lazy val http4sVersion              = "0.23.29"
+lazy val pureConfigVersion          = "0.17.7"
+lazy val log4catsVersion            = "2.7.0"
+lazy val tsecVersion                = "0.5.0"
+lazy val scalaTestVersion           = "3.2.19"
+lazy val scalaTestCatsEffectVersion = "1.5.0"
 lazy val testContainerVersion       = "1.17.3"
 lazy val logbackVersion             = "1.4.0"
-lazy val slf4jVersion               = "2.0.0"
+lazy val slf4jVersion               = "2.0.6"
 lazy val javaMailVersion            = "1.6.2"
+
+fork := true
 
 lazy val server = project
   .in(file("."))
@@ -28,10 +29,7 @@ lazy val server = project
       "org.http4s"            %% "http4s-circe"        % http4sVersion,
       "io.circe"              %% "circe-generic"       % circeVersion,
       "io.circe"              %% "circe-fs2"           % circeVersion,
-      "org.tpolecat"          %% "doobie-core"         % doobieVersion,
-      "org.tpolecat"          %% "doobie-hikari"       % doobieVersion,
-      "org.tpolecat"          %% "doobie-postgres"     % doobieVersion,
-      "org.tpolecat"          %% "doobie-scalatest"    % doobieVersion    % Test,
+      "org.tpolecat"          %% "skunk-core"          % "0.6.4",
       "com.github.pureconfig" %% "pureconfig-core"     % pureConfigVersion,
       "org.typelevel"         %% "log4cats-slf4j"      % log4catsVersion,
       "org.slf4j"              % "slf4j-simple"        % slf4jVersion,
